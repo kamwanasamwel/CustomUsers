@@ -28,6 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "account.Account"
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'account.backends.CaseInsensitiveModelBackend'
+)
 # Application definition
 
 INSTALLED_APPS = [
@@ -121,5 +125,5 @@ USE_TZ = True
 MEDIA_ROOT = 'media/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    BASE_DIR / "static",
 ]
